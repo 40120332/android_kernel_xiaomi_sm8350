@@ -115,3 +115,10 @@ static inline long seccomp_get_metadata(struct task_struct *task,
 }
 #endif /* CONFIG_SECCOMP_FILTER && CONFIG_CHECKPOINT_RESTORE */
 #endif /* _LINUX_SECCOMP_H */
+
+/* 5.4 backport: SECCOMP_ARCH_NATIVE_NR (kernel 5.0+) */
+#ifndef SECCOMP_ARCH_NATIVE_NR
+#include <linux/audit.h>
+#define SECCOMP_ARCH_NATIVE		AUDIT_ARCH_AARCH64
+#define SECCOMP_ARCH_NATIVE_NR		SECCOMP_ARCH_NATIVE
+#endif

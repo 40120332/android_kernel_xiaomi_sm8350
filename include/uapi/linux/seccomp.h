@@ -125,10 +125,3 @@ struct seccomp_notif_resp {
 #define SECCOMP_IOCTL_NOTIF_ID_VALID	SECCOMP_IOW(2, __u64)
 
 #endif /* _UAPI_LINUX_SECCOMP_H */
-
-/* 5.4 backport: SECCOMP_ARCH_NATIVE_NR (kernel 5.0+) */
-#ifndef SECCOMP_ARCH_NATIVE_NR
-#include <linux/audit.h>
-#define SECCOMP_ARCH_NATIVE		AUDIT_ARCH_AARCH64
-#define SECCOMP_ARCH_NATIVE_NR		SECCOMP_ARCH_NATIVE
-#endif
