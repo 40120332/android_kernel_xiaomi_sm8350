@@ -1963,3 +1963,14 @@ static inline int security_perf_event_write(struct perf_event *event)
 #endif /* CONFIG_PERF_EVENTS */
 
 #endif /* ! __LINUX_SECURITY_H */
+
+/* 5.4 backport: security_inode_init_security_anon (kernel 5.15+) */
+#ifndef _LINUX_SECURITY_ANON_BACKPORT_H
+#define _LINUX_SECURITY_ANON_BACKPORT_H
+static inline int security_inode_init_security_anon(struct inode *inode,
+						    const struct qstr *name,
+						    const struct inode *context_inode)
+{
+	return 0;
+}
+#endif

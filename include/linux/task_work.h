@@ -23,3 +23,8 @@ static inline void exit_task_work(struct task_struct *task)
 }
 
 #endif	/* _LINUX_TASK_WORK_H */
+
+/* 5.4 backport: TWA_RESUME (kernel 5.8+) */
+#ifndef TWA_RESUME
+#define TWA_RESUME true
+#endif
